@@ -7,6 +7,8 @@ import { MdOutlineAddTask } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { v4 as uuidv4 } from 'uuid';
 
+import { SlCalender } from "react-icons/sl";
+import { IoMdTimer } from "react-icons/io";
 
 
 function App() {
@@ -90,6 +92,7 @@ function App() {
 
   const interval = setInterval(() => {
     const now = new Date();
+   
     const formattedDate = now.toLocaleDateString();
     const formattedTime = now.toLocaleTimeString();
     setDateTime(`${formattedDate} - ${formattedTime}`);
@@ -101,8 +104,12 @@ function App() {
       <Navbar />
       <div className="mx-3 md:container md:mx-auto my-5 rounded-xl p-5 bg-violet-100 shadow-xl min-h-[80vh] md:w-[40%]">
         <h1 className='font-bold text-center text-2xl'>TaskMaster - Your Daily Organizer</h1>
-        
-        <h2 className='date-time font-bold  md:ml-[37%] ml-19 mt-4'>{dateTime}</h2>
+         
+         <div className="flex mt-5">
+         <SlCalender className='mt-1 m-2'/>
+        <h2 className='date-time font-bold'>{dateTime}</h2>
+        <IoMdTimer className='w-5 h-5 mt-0.5 m-2'/>
+        </div>
       
         <div className="addTodo my-5 flex flex-col gap-4">
           <h1 className='text-xl font-bold'> Add a Task<MdOutlineAddTask className='ml-28 mt-[-21px]' /></h1>
